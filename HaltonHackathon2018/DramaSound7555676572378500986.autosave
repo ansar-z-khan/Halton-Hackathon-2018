@@ -3,17 +3,21 @@ class DramaSound {
   boolean isPlaying = false;
   float lastTimestamp = 0.0;
   float timeStarted = 0;
-  float volume = 100;
+  float volume = 0;
+  boolean isMuted = false;
+  
+  String s;
   
   DramaSound(String fileName, PApplet app) {
     file = new SoundFile(app, fileName);
+    s = fileName;
   }
   
   void playSound() {
       if (!isPlaying && lastTimestamp == 0) {//Pressing play for the time
         file.cue(0.0);
         file.play();
-        timeStarted = millis();
+        timeStarted = millis()/1000;
         isPlaying = true;
         return;
     } else if (!isPlaying && lastTimestamp > 0) {
@@ -38,6 +42,7 @@ class DramaSound {
       lastTimestamp = 0;
       file.stop();
       isPlaying = false;
+      println("Stopping");
     }
   }
   void jump(float jumpAmount){//Jump amount is in seconds
@@ -68,8 +73,16 @@ class DramaSound {
   
   }
   void update(){
-    file.amp(volume/100);
-   if(millis()-timeStarted+lastTimestamp >= file.duration()){
+    file.amp(volume/100.0);
+    if(!isMuted){
+      file.amp(volume/100.0);
+    }
+    else{
+      file.amp(0);
+    }
+    println(s);
+   if(millis()/1000-timeStarted+lastTimestamp >= file.duration()){
+    // println("If trigger");
      stopSound();
    }
   }
