@@ -16,7 +16,6 @@
 
 synchronized public void windowManualDraw(PApplet appc, GWinData data) { //_CODE_:windowManual:666258:
   appc.background(255);
-  drawFilters();
 } //_CODE_:windowManual:666258:
 
 public void play1_click(GImageButton source, GEvent event) { //_CODE_:play1:977343:
@@ -121,71 +120,26 @@ public void volume3_change(GCustomSlider source, GEvent event) { //_CODE_:volume
 
 public void mute1_click(GImageButton source, GEvent event) { //_CODE_:mute1:203280:
   println("mute1 - GImageButton >> GEvent." + event + " @ " + millis());
-  
-  if (muteStates[0] == false) {
-    mute1.setOpaque(true);
-    muteStates[0] = true;
-    println(true);
-  } else {
-    mute1.setOpaque(false);
-    muteStates[0] = false;
-    println(false);
-  }
 } //_CODE_:mute1:203280:
 
 public void loop1_click(GImageButton source, GEvent event) { //_CODE_:loop1:566149:
   println("loop1 - GImageButton >> GEvent." + event + " @ " + millis());
-  if (loopStates[0] == false) {
-    loop1.setOpaque(true);
-    loopStates[0] = true;
-  } else {
-    loop1.setOpaque(false);
-    loopStates[0] = false;
-  }
 } //_CODE_:loop1:566149:
 
 public void mute2_click(GImageButton source, GEvent event) { //_CODE_:mute2:968991:
   println("mute2 - GImageButton >> GEvent." + event + " @ " + millis());
-  if (muteStates[1] == false) {
-    mute2.setOpaque(true);
-    muteStates[1] = true;
-  } else {
-    mute2.setOpaque(false);
-    muteStates[1] = false;
-  }
 } //_CODE_:mute2:968991:
 
 public void loop2_click(GImageButton source, GEvent event) { //_CODE_:loop2:257484:
   println("loop2 - GImageButton >> GEvent." + event + " @ " + millis());
-  if (loopStates[1] == false) {
-    loop2.setOpaque(true);
-    loopStates[1] = true;
-  } else {
-    loop2.setOpaque(false);
-    loopStates[1] = false;
-  }
 } //_CODE_:loop2:257484:
 
 public void mute3_click(GImageButton source, GEvent event) { //_CODE_:mute3:447380:
   println("mute3 - GImageButton >> GEvent." + event + " @ " + millis());
-  if (muteStates[2] == false) {
-    mute3.setOpaque(true);
-    muteStates[2] = true;
-  } else {
-    mute3.setOpaque(false);
-    muteStates[2] = false;
-  }
 } //_CODE_:mute3:447380:
 
 public void loop3_click(GImageButton source, GEvent event) { //_CODE_:loop3:384473:
   println("loop3 - GImageButton >> GEvent." + event + " @ " + millis());
-  if (loopStates[2] == false) {
-    loop3.setOpaque(true);
-    loopStates[2] = true;
-  } else {
-    loop3.setOpaque(false);
-    loopStates[2] = false;
-  }
 } //_CODE_:loop3:384473:
 
 
@@ -199,11 +153,10 @@ public void createGUI(){
   surface.setTitle("Welcome");
   windowManual = GWindow.getWindow(this, "Manual  Control", 0, 0, 800, 700, JAVA2D);
   windowManual.noLoop();
-  windowManual.setActionOnClose(G4P.CLOSE_WINDOW);
   windowManual.addDrawHandler(this, "windowManualDraw");
   play1 = new GImageButton(windowManual, 140, 150, 50, 50, new String[] { "playButton.png", "playButton.png", "playButton.png" } );
   play1.addEventHandler(this, "play1_click");
-  songPicker1 = new GDropList(windowManual, 40, 190, 90, 140, 6);
+  songPicker1 = new GDropList(windowManual, 40, 190, 90, 80, 3);
   songPicker1.setItems(loadStrings("list_814732"), 0);
   songPicker1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker1.addEventHandler(this, "songPicker1_click");
@@ -216,7 +169,7 @@ public void createGUI(){
   rewind1.addEventHandler(this, "rewind1_click");
   skip1 = new GImageButton(windowManual, 260, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip1.addEventHandler(this, "skip1_click");
-  songPicker2 = new GDropList(windowManual, 40, 390, 100, 140, 6);
+  songPicker2 = new GDropList(windowManual, 40, 390, 100, 80, 3);
   songPicker2.setItems(loadStrings("list_771045"), 0);
   songPicker2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker2.addEventHandler(this, "songPicker2_click");
@@ -231,7 +184,7 @@ public void createGUI(){
   rewind2.addEventHandler(this, "rewind_click");
   skip2 = new GImageButton(windowManual, 270, 350, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip2.addEventHandler(this, "skip2_click");
-  songPicker3 = new GDropList(windowManual, 40, 590, 100, 140, 6);
+  songPicker3 = new GDropList(windowManual, 40, 590, 100, 80, 3);
   songPicker3.setItems(loadStrings("list_591855"), 0);
   songPicker3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker3.addEventHandler(this, "songPicker_click");

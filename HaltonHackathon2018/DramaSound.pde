@@ -46,12 +46,12 @@ class DramaSound {
     
    
     
-       if(jumpAmount + lastTimestamp > file.duration() ){
-         lastTimestamp = file.duration();
-       }
-       else if(jumpAmount + lastTimestamp < 0){
-         lastTimestamp = 0;
-       }
+   if(jumpAmount + lastTimestamp > file.duration() ){
+     lastTimestamp = file.duration();
+   }
+   else if(jumpAmount + lastTimestamp < 0){
+     lastTimestamp = 0;
+   }
        
     
    
