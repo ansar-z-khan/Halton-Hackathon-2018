@@ -15,7 +15,7 @@
  */
 
 synchronized public void windowManualDraw(PApplet appc, GWinData data) { //_CODE_:windowManual:666258:
-  appc.background(230);
+  appc.background(255);
 } //_CODE_:windowManual:666258:
 
 public void play1_click(GImageButton source, GEvent event) { //_CODE_:play1:977343:
