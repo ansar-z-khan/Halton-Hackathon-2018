@@ -224,7 +224,7 @@ public void createGUI(){
   songPicker2.addEventHandler(this, "songPicker2_click");
   play2 = new GImageButton(windowManual, 150, 350, 50, 50, new String[] { "playButton.png", "playButton.png", "playButton.png" } );
   play2.addEventHandler(this, "play2_click");
-  skipAmount2 = new GTextField(windowManual, 210, 410, 120, 30, G4P.SCROLLBARS_NONE);
+  skipAmount2 = new GTextField(windowManual, 210, 410, 110, 30, G4P.SCROLLBARS_NONE);
   skipAmount2.setPromptText("Enter skip amount");
   skipAmount2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   skipAmount2.setOpaque(true);
@@ -245,7 +245,7 @@ public void createGUI(){
   play3.addEventHandler(this, "play3_click");
   pause3 = new GImageButton(windowManual, 150, 600, 50, 50, new String[] { "pauseButton.png", "pauseButton.png", "pauseButton.png" } );
   pause3.addEventHandler(this, "pause3_click");
-  skipAmount3 = new GTextField(windowManual, 210, 610, 120, 30, G4P.SCROLLBARS_NONE);
+  skipAmount3 = new GTextField(windowManual, 210, 610, 110, 30, G4P.SCROLLBARS_NONE);
   skipAmount3.setPromptText("Enter SKip Amount");
   skipAmount3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   skipAmount3.setOpaque(true);
