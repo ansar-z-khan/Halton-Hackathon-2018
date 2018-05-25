@@ -2,11 +2,15 @@ import g4p_controls.*;
 
 void setup() {
   createGUI();
-  size(800, 700, JAVA2D);
+  size(400, 350, JAVA2D);
+  windowManual.setVisible(false);
+  windowManual.setVisible(true);
+
 }
 
 
 
-void draw(){
+void draw() {
+  background(255);
   
 }
