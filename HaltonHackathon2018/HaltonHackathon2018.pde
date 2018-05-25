@@ -3,7 +3,9 @@ import processing.sound.*;
 import g4p_controls.*;
 
 
-SoundFile[] files;
+DramaSound file1;
+DramaSound file2;
+DramaSound file3;
 
 String[] fileNames = {
   "bellSound.mp3",
@@ -11,7 +13,10 @@ String[] fileNames = {
   "gunSound.mp3",
   "rainMusic.mp3",
   "sneezeSound.mp3",
-  "ufoMusic.mp3"
+  "ufoMusic.mp3",
+  //"launchMusic.mp3"
+  "backgroundMusic.mp3"
+  
 };
 
 
@@ -20,10 +25,9 @@ void setup() {
   createGUI();
   size(400, 350, JAVA2D);
   //windowManual.setVisible(false);
-    files = new SoundFile[fileNames.length];
-  for(int i=0; i < fileNames.length; i++){
-     files[i] = new SoundFile(this, fileNames[i]);
-  }
+  file1 = new DramaSound(fileNames[0], this);
+  file2 = new DramaSound(fileNames[1], this);
+  file3 = new DramaSound(fileNames[2], this);
 
 }
 
@@ -32,6 +36,7 @@ void createManualScreen() {
   windowManual.setVisible(true);
   //create seek limits
   windowManual.setVisible(true);
+  
 
 }
 
@@ -39,11 +44,7 @@ void createManualScreen() {
 
 
 void draw() {
-  background(255);
-  files[1].play();
-  delay(1000);
-  files[1].stop();
-  delay(3000);
-   files[1].play();
+
+
 
 }
