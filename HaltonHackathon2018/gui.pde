@@ -17,6 +17,9 @@
 synchronized public void windowManualDraw(PApplet appc, GWinData data) { //_CODE_:windowManual:666258:
   appc.background(255);
   drawFilters();
+  
+  showManualTitle();
+ 
 } //_CODE_:windowManual:666258:
 
 public void play1_click(GImageButton source, GEvent event) { //_CODE_:play1:977343:
@@ -105,10 +108,6 @@ public void seeker3_change(GSlider source, GEvent event) { //_CODE_:seek3:870728
   println("seek3 - GSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:seek3:870728:
 
-public void manualTitle_change(GTextField source, GEvent event) { //_CODE_:manualTitle:602405:
-  println("manualTitle - GTextField >> GEvent." + event + " @ " + millis());
-} //_CODE_:manualTitle:602405:
-
 public void volume1_change(GCustomSlider source, GEvent event) { //_CODE_:volume1:608392:
   println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
 } //_CODE_:volume1:608392:
@@ -190,6 +189,18 @@ public void loop3_click(GImageButton source, GEvent event) { //_CODE_:loop3:3844
   }
 } //_CODE_:loop3:384473:
 
+public void delay1_change(GTextField source, GEvent event) { //_CODE_:delay1:364857:
+  println("delay1 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:delay1:364857:
+
+public void delay2_change(GTextField source, GEvent event) { //_CODE_:delay2:420596:
+  println("delay2 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:delay2:420596:
+
+public void delay3_change(GTextField source, GEvent event) { //_CODE_:delay3:614370:
+  println("delay3 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:delay3:614370:
+
 
 
 // Create all the GUI controls. 
@@ -205,7 +216,7 @@ public void createGUI(){
   windowManual.addDrawHandler(this, "windowManualDraw");
   play1 = new GImageButton(windowManual, 140, 150, 50, 50, new String[] { "playButton.png", "playButton.png", "playButton.png" } );
   play1.addEventHandler(this, "play1_click");
-  songPicker1 = new GDropList(windowManual, 40, 190, 90, 140, 6);
+  songPicker1 = new GDropList(windowManual, 40, 160, 90, 140, 6);
   songPicker1.setItems(loadStrings("list_814732"), 0);
   songPicker1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker1.addEventHandler(this, "songPicker1_click");
@@ -218,7 +229,7 @@ public void createGUI(){
   rewind1.addEventHandler(this, "rewind1_click");
   skip1 = new GImageButton(windowManual, 260, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip1.addEventHandler(this, "skip1_click");
-  songPicker2 = new GDropList(windowManual, 40, 390, 100, 140, 6);
+  songPicker2 = new GDropList(windowManual, 40, 360, 100, 140, 6);
   songPicker2.setItems(loadStrings("list_771045"), 0);
   songPicker2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker2.addEventHandler(this, "songPicker2_click");
@@ -233,7 +244,7 @@ public void createGUI(){
   rewind2.addEventHandler(this, "rewind_click");
   skip2 = new GImageButton(windowManual, 270, 350, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip2.addEventHandler(this, "skip2_click");
-  songPicker3 = new GDropList(windowManual, 40, 590, 100, 140, 6);
+  songPicker3 = new GDropList(windowManual, 40, 560, 100, 140, 6);
   songPicker3.setItems(loadStrings("list_591855"), 0);
   songPicker3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker3.addEventHandler(this, "songPicker_click");
@@ -278,11 +289,6 @@ public void createGUI(){
   seek3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   seek3.setOpaque(false);
   seek3.addEventHandler(this, "seeker3_change");
-  manualTitle = new GTextField(windowManual, 40, 20, 320, 90, G4P.SCROLLBARS_NONE);
-  manualTitle.setText("Manual Playing");
-  manualTitle.setLocalColorScheme(GCScheme.CYAN_SCHEME);
-  manualTitle.setOpaque(true);
-  manualTitle.addEventHandler(this, "manualTitle_change");
   volume1 = new GCustomSlider(windowManual, 460, 150, 120, 80, "blue18px");
   volume1.setShowValue(true);
   volume1.setShowLimits(true);
@@ -346,6 +352,21 @@ public void createGUI(){
   mute3.addEventHandler(this, "mute3_click");
   loop3 = new GImageButton(windowManual, 330, 600, 50, 50, new String[] { "loopButton.png", "loopButton.png", "loopButton.png" } );
   loop3.addEventHandler(this, "loop3_click");
+  delay1 = new GTextField(windowManual, 40, 200, 90, 30, G4P.SCROLLBARS_NONE);
+  delay1.setPromptText("Delay");
+  delay1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  delay1.setOpaque(true);
+  delay1.addEventHandler(this, "delay1_change");
+  delay2 = new GTextField(windowManual, 40, 400, 100, 30, G4P.SCROLLBARS_NONE);
+  delay2.setPromptText("Delay");
+  delay2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  delay2.setOpaque(true);
+  delay2.addEventHandler(this, "delay2_change");
+  delay3 = new GTextField(windowManual, 40, 600, 100, 30, G4P.SCROLLBARS_NONE);
+  delay3.setPromptText("Delay");
+  delay3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  delay3.setOpaque(true);
+  delay3.addEventHandler(this, "delay3_change");
   windowManual.loop();
 }
 
@@ -373,7 +394,6 @@ GImageButton skip3;
 GSlider seek1; 
 GSlider seek2; 
 GSlider seek3; 
-GTextField manualTitle; 
 GCustomSlider volume1; 
 GLabel volumeL1; 
 GCustomSlider volume2; 
@@ -386,3 +406,6 @@ GImageButton mute2;
 GImageButton loop2; 
 GImageButton mute3; 
 GImageButton loop3; 
+GTextField delay1; 
+GTextField delay2; 
+GTextField delay3; 

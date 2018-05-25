@@ -21,3 +21,9 @@ void drawFilters(){
   }
   
 }
+
+void showManualTitle() {
+ windowManual.textSize(50);
+ windowManual.fill(0);
+ windowManual.text("Manual Control", 50, 100);
+}

@@ -45,7 +45,6 @@ void createManualScreen() {
   //create seek limits
   windowManual.setVisible(true);
   
-
 }
 
 
