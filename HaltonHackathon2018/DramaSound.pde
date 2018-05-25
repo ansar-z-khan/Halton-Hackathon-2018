@@ -75,7 +75,14 @@ class DramaSound {
 
     file.amp(volume/100);
    if(millis()/1000.0-timeStarted+lastTimestamp >= file.duration()){
-     stopSound();
+     
+     if (loopStates[num-1]) {
+       //jumpToTime(0);
+       //playSound();
+     } else {
+       stopSound();
+     }
+     //stopSound();
    }
    
    if (muteStates[num-1]) {
@@ -83,6 +90,7 @@ class DramaSound {
    } else {
      file.amp(volume/100);
    }
+
    
   }
   float getTime(){

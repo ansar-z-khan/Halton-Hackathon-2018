@@ -150,6 +150,7 @@ public void loop1_click(GImageButton source, GEvent event) { //_CODE_:loop1:5661
   if (loopStates[0] == false) {
     loop1.setOpaque(true);
     loopStates[0] = true;
+    file1.file.loop();
   } else {
     loop1.setOpaque(false);
     loopStates[0] = false;
@@ -221,7 +222,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
   surface.setTitle("Welcome");
-  windowManual = GWindow.getWindow(this, "Manual  Control", 0, 0, 800, 700, JAVA2D);
+  windowManual = GWindow.getWindow(this, "Manual  Control", 300, 100, 500, 700, JAVA2D);
   windowManual.noLoop();
   windowManual.setActionOnClose(G4P.CLOSE_WINDOW);
   windowManual.addDrawHandler(this, "windowManualDraw");
@@ -305,7 +306,7 @@ public void createGUI(){
   volume1.setShowLimits(true);
   volume1.setTextOrientation(G4P.ORIENT_LEFT);
   volume1.setRotation(PI/2, GControlMode.CORNER);
-  volume1.setLimits(0, 0, 100);
+  volume1.setLimits(100, 0, 100);
   volume1.setNbrTicks(10);
   volume1.setShowTicks(true);
   volume1.setNumberFormat(G4P.INTEGER, 0);
@@ -322,7 +323,7 @@ public void createGUI(){
   volume2.setShowLimits(true);
   volume2.setTextOrientation(G4P.ORIENT_LEFT);
   volume2.setRotation(PI/2, GControlMode.CORNER);
-  volume2.setLimits(0, 0, 100);
+  volume2.setLimits(100, 0, 100);
   volume2.setNbrTicks(10);
   volume2.setShowTicks(true);
   volume2.setNumberFormat(G4P.INTEGER, 0);

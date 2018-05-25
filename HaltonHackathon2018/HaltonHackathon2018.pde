@@ -36,6 +36,7 @@ void setup() {
   file1 = new DramaSound(fileNames[0], this);
   file2 = new DramaSound(fileNames[1], this);
   file3 = new DramaSound(fileNames[2], this);
+  
 
 }
 
