@@ -216,6 +216,33 @@ public void delay3_change(GTextField source, GEvent event) { //_CODE_:delay3:614
   println("delay3 - GTextField >> GEvent." + event + " @ " + millis());
 } //_CODE_:delay3:614370:
 
+public void fade1_click(GButton source, GEvent event) { //_CODE_:fade1:386654:
+  println("fade1 - GButton >> GEvent." + event + " @ " + millis());
+  file1.fadeVal = (file1.volume/float(fadeTime1.getText())+2 );
+} //_CODE_:fade1:386654:
+
+public void fadeTime1_change(GTextField source, GEvent event) { //_CODE_:fadeTime1:486609:
+  println("fadeTime1 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:fadeTime1:486609:
+
+public void fade2_click(GButton source, GEvent event) { //_CODE_:fade2:363936:
+  println("fade2 - GButton >> GEvent." + event + " @ " + millis());
+  file2.fadeVal = (file2.volume/float(fadeTime2.getText())+2 );
+} //_CODE_:fade2:363936:
+
+public void fadeTime2_change(GTextField source, GEvent event) { //_CODE_:fadeTime2:883344:
+  println("fadeTime2 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:fadeTime2:883344:
+
+public void fade3_click(GButton source, GEvent event) { //_CODE_:fade3:814105:
+  println("fade3 - GButton >> GEvent." + event + " @ " + millis());
+  file3.fadeVal = (file3.volume/float(fadeTime3.getText())+2 );
+} //_CODE_:fade3:814105:
+
+public void fadeTime3_change(GTextField source, GEvent event) { //_CODE_:fadeTime3:202310:
+  println("fadeTime3 - GTextField >> GEvent." + event + " @ " + millis());
+} //_CODE_:fadeTime3:202310:
+
 
 
 // Create all the GUI controls. 
@@ -225,7 +252,7 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setCursor(ARROW);
   surface.setTitle("Welcome");
-  windowManual = GWindow.getWindow(this, "Manual  Control", 300, 100, 500, 700, JAVA2D);
+  windowManual = GWindow.getWindow(this, "Manual  Control", 300, 100, 600, 700, JAVA2D);
   windowManual.noLoop();
   windowManual.setActionOnClose(G4P.CLOSE_WINDOW);
   windowManual.addDrawHandler(this, "windowManualDraw");
@@ -245,7 +272,7 @@ public void createGUI(){
   skip1 = new GImageButton(windowManual, 260, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip1.addEventHandler(this, "skip1_click");
   songPicker2 = new GDropList(windowManual, 40, 360, 100, 140, 6);
-  songPicker2.setItems(loadStrings("list_771045"), 0);
+  songPicker2.setItems(loadStrings("list_771045"), 1);
   songPicker2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker2.addEventHandler(this, "songPicker2_click");
   play2 = new GImageButton(windowManual, 150, 350, 50, 50, new String[] { "playButton.png", "playButton.png", "playButton.png" } );
@@ -260,7 +287,7 @@ public void createGUI(){
   skip2 = new GImageButton(windowManual, 270, 350, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip2.addEventHandler(this, "skip2_click");
   songPicker3 = new GDropList(windowManual, 40, 560, 100, 140, 6);
-  songPicker3.setItems(loadStrings("list_591855"), 0);
+  songPicker3.setItems(loadStrings("list_591855"), 2);
   songPicker3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   songPicker3.addEventHandler(this, "songPicker_click");
   pause1 = new GImageButton(windowManual, 140, 200, 50, 50, new String[] { "pauseButton.png", "pauseButton.png", "pauseButton.png" } );
@@ -382,6 +409,47 @@ public void createGUI(){
   delay3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
   delay3.setOpaque(true);
   delay3.addEventHandler(this, "delay3_change");
+  fade1 = new GButton(windowManual, 480, 150, 80, 30);
+  fade1.setText("Fade");
+  fade1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fade1.addEventHandler(this, "fade1_click");
+  fadeTime1 = new GTextField(windowManual, 470, 200, 100, 30, G4P.SCROLLBARS_NONE);
+  fadeTime1.setText("10");
+  fadeTime1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fadeTime1.setOpaque(true);
+  fadeTime1.addEventHandler(this, "fadeTime1_change");
+  fade2 = new GButton(windowManual, 480, 350, 80, 30);
+  fade2.setText("Fade");
+  fade2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fade2.addEventHandler(this, "fade2_click");
+  fadeTime2 = new GTextField(windowManual, 470, 400, 100, 30, G4P.SCROLLBARS_NONE);
+  fadeTime2.setText("10");
+  fadeTime2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fadeTime2.setOpaque(true);
+  fadeTime2.addEventHandler(this, "fadeTime2_change");
+  fade3 = new GButton(windowManual, 480, 550, 80, 30);
+  fade3.setText("Fade");
+  fade3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fade3.addEventHandler(this, "fade3_click");
+  fadeTime3 = new GTextField(windowManual, 470, 590, 100, 30, G4P.SCROLLBARS_NONE);
+  fadeTime3.setText("10");
+  fadeTime3.setOpaque(true);
+  fadeTime3.addEventHandler(this, "fadeTime3_change");
+  fadeL1 = new GLabel(windowManual, 480, 240, 80, 40);
+  fadeL1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  fadeL1.setText("Fade Duration");
+  fadeL1.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fadeL1.setOpaque(false);
+  fadeL2 = new GLabel(windowManual, 480, 440, 80, 40);
+  fadeL2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  fadeL2.setText("Fade Duration");
+  fadeL2.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fadeL2.setOpaque(false);
+  fadeL3 = new GLabel(windowManual, 480, 630, 80, 40);
+  fadeL3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  fadeL3.setText("Fade Duration");
+  fadeL3.setLocalColorScheme(GCScheme.CYAN_SCHEME);
+  fadeL3.setOpaque(false);
   windowManual.loop();
 }
 
@@ -424,3 +492,12 @@ GImageButton loop3;
 GTextField delay1; 
 GTextField delay2; 
 GTextField delay3; 
+GButton fade1; 
+GTextField fadeTime1; 
+GButton fade2; 
+GTextField fadeTime2; 
+GButton fade3; 
+GTextField fadeTime3; 
+GLabel fadeL1; 
+GLabel fadeL2; 
+GLabel fadeL3; 

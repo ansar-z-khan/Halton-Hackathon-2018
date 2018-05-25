@@ -6,6 +6,8 @@ class DramaSound {
   float volume = 100;
   
   boolean isMuted;
+  
+  double fadeVal = 0;
 
   DramaSound(String fileName, PApplet app) {
     file = new SoundFile(app, fileName);
@@ -71,7 +73,18 @@ class DramaSound {
   
   }
   void update(int num){
-    println("is playing:" + isPlaying);
+    //println("is playing:" + isPlaying);
+
+    if (volume <= 0) {
+      volume = 0;
+      fadeVal = 0;
+    }
+
+    println(frameCount%frameRate);
+    if (frameCount%frameRate >= 0 && frameCount%frameRate <= 2){
+      volume -= fadeVal;
+      println("fade val = " + fadeVal + "volume = " + volume);
+    }
 
     file.amp(volume/100);
    if(millis()/1000.0-timeStarted+lastTimestamp >= file.duration()){
