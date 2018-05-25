@@ -167,7 +167,7 @@ public void createGUI(){
   skipAmount1.addEventHandler(this, "skipAmount1_change");
   rewind1 = new GImageButton(windowManual, 210, 150, 50, 50, new String[] { "rewindButton.png", "rewindButton.png", "rewindButton.png" } );
   rewind1.addEventHandler(this, "rewind1_click");
-  skip1 = new GImageButton(windowManual, 260, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
+  skip1 = new GImageButton(windowManual, 261, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip1.addEventHandler(this, "skip1_click");
   songPicker2 = new GDropList(windowManual, 40, 390, 100, 80, 3);
   songPicker2.setItems(loadStrings("list_771045"), 0);
@@ -287,15 +287,15 @@ public void createGUI(){
   volumeL3.setOpaque(false);
   mute1 = new GImageButton(windowManual, 330, 150, 50, 50, new String[] { "muteButton.png", "muteButton.png", "muteButton.png" } );
   mute1.addEventHandler(this, "mute1_click");
-  loop1 = new GImageButton(windowManual, 330, 200, 50, 50, new String[] { "", "", "" } );
+  loop1 = new GImageButton(windowManual, 330, 200, 50, 50, new String[] { "loopButton.png", "loopButton.png", "loopButton.png" } );
   loop1.addEventHandler(this, "loop1_click");
   mute2 = new GImageButton(windowManual, 330, 350, 50, 50, new String[] { "muteButton.png", "muteButton.png", "muteButton.png" } );
   mute2.addEventHandler(this, "mute2_click");
-  loop2 = new GImageButton(windowManual, 330, 400, 50, 50, new String[] { "", "", "" } );
+  loop2 = new GImageButton(windowManual, 330, 400, 50, 50, new String[] { "loopButton.png", "loopButton.png", "loopButton.png" } );
   loop2.addEventHandler(this, "loop2_click");
   mute3 = new GImageButton(windowManual, 330, 550, 50, 50, new String[] { "muteButton.png", "muteButton.png", "muteButton.png" } );
   mute3.addEventHandler(this, "mute3_click");
-  loop3 = new GImageButton(windowManual, 330, 600, 50, 50, new String[] { "", "", "" } );
+  loop3 = new GImageButton(windowManual, 330, 600, 50, 50, new String[] { "loopButton.png", "loopButton.png", "loopButton.png" } );
   loop3.addEventHandler(this, "loop3_click");
   windowManual.loop();
 }
