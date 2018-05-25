@@ -55,5 +55,11 @@ void draw() {
   file1.update();
   file2.update();
   file3.update();
+  seek1.setLimits(0,file1.file.duration());
+  seek1.setValue(file1.getTime());
+  seek2.setLimits(0,file2.file.duration());
+  seek2.setValue(file2.getTime());
+  seek3.setLimits(0,file3.file.duration());
+  seek3.setValue(file3.getTime());
   
 }
