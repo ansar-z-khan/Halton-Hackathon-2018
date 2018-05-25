@@ -167,7 +167,7 @@ public void createGUI(){
   skipAmount1.addEventHandler(this, "skipAmount1_change");
   rewind1 = new GImageButton(windowManual, 210, 150, 50, 50, new String[] { "rewindButton.png", "rewindButton.png", "rewindButton.png" } );
   rewind1.addEventHandler(this, "rewind1_click");
-  skip1 = new GImageButton(windowManual, 260, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
+  skip1 = new GImageButton(windowManual, 261, 150, 50, 50, new String[] { "fastForwardButton.png", "fastForwardButton.png", "fastForwardButton.png" } );
   skip1.addEventHandler(this, "skip1_click");
   songPicker2 = new GDropList(windowManual, 40, 390, 100, 80, 3);
   songPicker2.setItems(loadStrings("list_771045"), 0);
