@@ -25,6 +25,7 @@ synchronized public void windowManualDraw(PApplet appc, GWinData data) { //_CODE
 public void play1_click(GImageButton source, GEvent event) { //_CODE_:play1:977343:
   println("imgButton1 - GImageButton >> GEvent." + event + " @ " + millis());
   file1.playSound();
+  println("PlaySound");
 } //_CODE_:play1:977343:
 
 public void songPicker1_click(GDropList source, GEvent event) { //_CODE_:songPicker1:814732:

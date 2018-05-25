@@ -13,7 +13,7 @@ class DramaSound {
       if (!isPlaying && lastTimestamp == 0) {//Pressing play for the time
         file.cue(0.0);
         file.play();
-        timeStarted = millis();
+        timeStarted = millis()/1000.0;
         isPlaying = true;
         return;
     } else if (!isPlaying && lastTimestamp > 0) {
@@ -38,6 +38,7 @@ class DramaSound {
       lastTimestamp = 0;
       file.stop();
       isPlaying = false;
+      println("stops");
     }
   }
   void jump(float jumpAmount){//Jump amount is in seconds
@@ -68,8 +69,10 @@ class DramaSound {
   
   }
   void update(){
+    println("is playing:" + isPlaying);
     file.amp(volume/100);
-   if(millis()-timeStarted+lastTimestamp >= file.duration()){
+    file.amp(1);
+   if(millis()/1000.0-timeStarted+lastTimestamp >= file.duration()){
      stopSound();
    }
   }
