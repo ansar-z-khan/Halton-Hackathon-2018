@@ -30,6 +30,7 @@ public void play1_click(GImageButton source, GEvent event) { //_CODE_:play1:9773
 
 public void songPicker1_click(GDropList source, GEvent event) { //_CODE_:songPicker1:814732:
   println("songPicker1 - GDropList >> GEvent." + event + " @ " + millis());
+   file1.stopSound();
    file1 = new DramaSound(source.getSelectedText()+".mp3", this);  
 } //_CODE_:songPicker1:814732:
 
@@ -47,6 +48,7 @@ public void skip1_click(GImageButton source, GEvent event) { //_CODE_:skip1:4513
 
 public void songPicker2_click(GDropList source, GEvent event) { //_CODE_:songPicker2:771045:
   println("songPicker2 - GDropList >> GEvent." + event + " @ " + millis());
+  file2.stopSound();
   file2 = new DramaSound(source.getSelectedText()+".mp3", this);
 } //_CODE_:songPicker2:771045:
 
@@ -69,6 +71,7 @@ public void skip2_click(GImageButton source, GEvent event) { //_CODE_:skip2:2315
 
 public void songPicker_click(GDropList source, GEvent event) { //_CODE_:songPicker3:591855:
   println("songPicker3 - GDropList >> GEvent." + event + " @ " + millis());
+  file3.stopSound();
   file3 = new DramaSound(source.getSelectedText()+".mp3", this);
 } //_CODE_:songPicker3:591855:
 
