@@ -52,8 +52,8 @@ void createManualScreen() {
 
 void draw() {
   background(255);
-  file1.update();
-  file2.update();
-  file3.update();
+  file1.update(1);
+  file2.update(2);
+  file3.update(3);
   
 }

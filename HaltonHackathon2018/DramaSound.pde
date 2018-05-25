@@ -5,6 +5,8 @@ class DramaSound {
   float timeStarted = 0;
   float volume = 100;
   
+  boolean isMuted;
+  
   DramaSound(String fileName, PApplet app) {
     file = new SoundFile(app, fileName);
   }
@@ -68,13 +70,19 @@ class DramaSound {
         isPlaying = true;
   
   }
-  void update(){
+  void update(int num){
     println("is playing:" + isPlaying);
-    file.amp(volume/100);
-    file.amp(1);
+    
    if(millis()/1000.0-timeStarted+lastTimestamp >= file.duration()){
      stopSound();
    }
+   
+   if (muteStates[num-1]) {
+     file.amp(0);
+   } else {
+     file.amp(volume/100);
+   }
+   
   }
   
   

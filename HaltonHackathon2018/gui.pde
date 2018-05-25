@@ -30,8 +30,7 @@ public void play1_click(GImageButton source, GEvent event) { //_CODE_:play1:9773
 
 public void songPicker1_click(GDropList source, GEvent event) { //_CODE_:songPicker1:814732:
   println("songPicker1 - GDropList >> GEvent." + event + " @ " + millis());
-   file1 = new DramaSound(source.getSelectedText()+".mp3", this);
-  
+   file1 = new DramaSound(source.getSelectedText()+".mp3", this);  
 } //_CODE_:songPicker1:814732:
 
 public void skipAmount1_change(GTextField source, GEvent event) { //_CODE_:skipAmount1:210116:
@@ -53,6 +52,7 @@ public void songPicker2_click(GDropList source, GEvent event) { //_CODE_:songPic
 
 public void play2_click(GImageButton source, GEvent event) { //_CODE_:play2:564998:
   println("play2 - GImageButton >> GEvent." + event + " @ " + millis());
+  file2.playSound();
 } //_CODE_:play2:564998:
 
 public void skipAmount2_change(GTextField source, GEvent event) { //_CODE_:skipAmount2:954025:
@@ -80,14 +80,17 @@ public void pause1_click(GImageButton source, GEvent event) { //_CODE_:pause1:34
 
 public void pause2_click(GImageButton source, GEvent event) { //_CODE_:pause2:826616:
   println("pause2 - GImageButton >> GEvent." + event + " @ " + millis());
+  file2.pauseSound();
 } //_CODE_:pause2:826616:
 
 public void play3_click(GImageButton source, GEvent event) { //_CODE_:play3:601700:
   println("play3 - GImageButton >> GEvent." + event + " @ " + millis());
+  file3.playSound();
 } //_CODE_:play3:601700:
 
 public void pause3_click(GImageButton source, GEvent event) { //_CODE_:pause3:963161:
   println("pause3 - GImageButton >> GEvent." + event + " @ " + millis());
+  file3.pauseSound();
 } //_CODE_:pause3:963161:
 
 public void skipAmount3_change(GTextField source, GEvent event) { //_CODE_:skipAmount3:935879:
@@ -116,14 +119,17 @@ public void seeker3_change(GSlider source, GEvent event) { //_CODE_:seek3:870728
 
 public void volume1_change(GCustomSlider source, GEvent event) { //_CODE_:volume1:608392:
   println("custom_slider1 - GCustomSlider >> GEvent." + event + " @ " + millis());
+  file1.volume = source.getValueF();
 } //_CODE_:volume1:608392:
 
 public void volume2_change(GCustomSlider source, GEvent event) { //_CODE_:volume2:953179:
   println("volume2 - GCustomSlider >> GEvent." + event + " @ " + millis());
+  file2.volume = source.getValueF();
 } //_CODE_:volume2:953179:
 
 public void volume3_change(GCustomSlider source, GEvent event) { //_CODE_:volume3:400751:
   println("volume3 - GCustomSlider >> GEvent." + event + " @ " + millis());
+  file3.volume = source.getValueF();
 } //_CODE_:volume3:400751:
 
 public void mute1_click(GImageButton source, GEvent event) { //_CODE_:mute1:203280:
